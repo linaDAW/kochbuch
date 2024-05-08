@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 const Ingredients = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
@@ -41,6 +41,7 @@ const Ingredients = () => {
   }
 
   return (
+    
     <div className="border border-gray-300 rounded-lg p-4 m-3 shadow-lg max-w-3xl mx-auto">
       <div>
         <h3 className="font-bold">{data.strMeal}</h3>
@@ -58,11 +59,15 @@ const Ingredients = () => {
           <ul className="list-disc list-inside">{getIngredients()}</ul>
         </div>
       </div>
-
+      <Link to={`/`}>
+      <button className="py-2 px-4 rounded-lg mt-4 w-full">HOME</button>
+      </Link>
       <div>
         <h4 className="font-semibold mt-2">Instructions:</h4>
         {data.strInstructions}
       </div>
+      
+      
     </div>
   );
 };
